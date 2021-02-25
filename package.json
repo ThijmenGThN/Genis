@@ -1,0 +1,28 @@
+{
+  "name": "genis",
+  "version": "0.0.0",
+  "description": "A Binance trading bot",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "GTh Network @ 2021 - ThijmenHeuvelink.GThN@pm.me",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^14.14.22",
+    "express": "^4.17.1",
+    "http": "0.0.1-security",
+    "jsonfile": "^6.1.0",
+    "node-binance-api-ext": "^2.0.1",
+    "socket.io": "^3.1.1"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ThijmenGThN/Genis.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ThijmenGThN/Genis/issues"
+  },
+  "homepage": "https://github.com/ThijmenGThN/Genis#readme"
+}

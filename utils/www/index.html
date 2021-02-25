@@ -1,0 +1,37 @@
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Genis</title>
+
+	<link rel="stylesheet" href="/www/css/bootstrap.css">
+
+	<script src="/www/js/bootstrap.js"></script>
+	<script src="/www/js/socket.io.js"></script>
+	<script>const socket = io()</script>
+</head>
+<body>
+	<div class="container-fluid bg-dark">
+		<b class="text-primary p-2">Genis</b>
+	</div>
+	<div class="container bg-dark p-3 rounded-2 mt-5">
+		<b class="text-primary">API</b>
+		<div class="progress mt-2">
+  			<div class="progress-bar bg-danger" role="progressbar" style="width: 5%"></div>
+			  	<div class="progress-bar bg-dark" role="progressbar" style="width: 90%">
+					<span id="graph-value">0% / 100%</span>
+				</div>
+  			<div class="progress-bar bg-success" role="progressbar" style="width: 5%"></div>
+		</div>
+		<div id="graph-bg" class="progress mt-2 bg-success">
+  			<div id="graph" class="progress-bar progress-bar-striped progress-bar-animated bg-primary" role="progressbar" style="width: 0%"></div>
+		</div>
+	</div>
+	<div class="container bg-dark p-3 rounded-2 mt-3 text-light">
+		<b class="text-primary">Worker</b>
+		<p>Balance: €100.00</p>
+	</div>
+
+	<script src="/www/js/main.js"></script>
+</body>
+</html>
