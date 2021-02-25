@@ -14,13 +14,11 @@ module.exports = {
 
         // Fetch configuration values and assign enviroment
         let config = json.readFileSync(`./config.json`)
-        if (config.debug) config = config.src
-        else config = config.dist
 
         // Binance API initiator (API is IP bound!)
         let api = binance({
-            APIKEY: `Gz9XD41ZbaVody4RvKscqwiEKQo4TT1e8u9R23HpDUHXJUhqM9JP9JzKf3MxJGkT`,
-            APISECRET: `Swa7q8V3u3zB0T2tppe5KDsO7chZM88oHrtMz1nhMphyhdTAWQNjlGUsjIj2MeNM`
+            APIKEY: config.binance.key,
+            APISECRET: config.binance.secret
         })
 
         // Initiate express web server
