@@ -3,25 +3,28 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Genis</title>
-
+	<link rel="stylesheet" href="/www/css/root.css">
+	
+	<!-- Third Party -->
 	<link rel="stylesheet" href="/www/css/libs/bootstrap.css">
 
 	<script src="/www/js/libs/bootstrap.js"></script>
+	<script src="/www/js/libs/chart.js"></script>
+	<script src="/www/js/libs/jquery.js"></script>
 	<script src="/www/js/libs/socket.io.js"></script>
 	<script>const socket = io()</script>
 </head>
-<body>
-	<div class="container-fluid bg-dark">
-		<b class="text-primary p-2">Genis</b>
+<body id="root">
+	<div class="container-fluid bg-dark text-primary">
+		<b class="p-2">Genis <span class="text-secondary">- Automatic Trader</span></b>
 	</div>
 
+	<div class="container bg-dark mt-4 rounded text-primary">
+		<b id="symbol">SYM/SYM</b>
+		<canvas id="chart"></canvas>
+	</div>
 
-
+	<script src="/www/js/hooks.js"></script>
 	<script src="/www/js/root.js"></script>
 </body>
 </html>
-
-
-
-<link href="" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-<script src="" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>

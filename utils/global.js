@@ -15,8 +15,8 @@ module.exports = {
         // Fetch configuration values and assign enviroment
         let config = json.readFileSync(`./config.json`)
 
-        // Binance API initiator (API is IP bound!)
-        let api = binance({
+        // Binance client initiator
+        let binanceClient = binance({
             APIKEY: config.binance.key,
             APISECRET: config.binance.secret
         })
@@ -39,7 +39,7 @@ module.exports = {
             },
             config: config,
             sockets: sockets,
-            api: api
+            binance: binanceClient
         }
 
     }
