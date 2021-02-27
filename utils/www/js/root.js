@@ -4,10 +4,10 @@
 // green #02c076
 
 // hide warnings
-setTimeout(() => console.clear(), 250)
+setTimeout(() => console.clear(), 1000)
 
-// Chart initiator
-let chart = new Chart(document.querySelector(`#chart`).getContext(`2d`), {
+// liveChart initiator
+let liveChart = new Chart(document.querySelector(`#liveChart`).getContext(`2d`), {
   type: `line`,
   data: {
     labels: [],
@@ -23,17 +23,30 @@ let chart = new Chart(document.querySelector(`#chart`).getContext(`2d`), {
 
 // Await socket packets
 socket.on(`pack`, res => {
-    let date = new Date()
-    
-    $(`#symbol`).text(res.symbol)
-    chart.options.scales.yAxes[0].ticks.stepSize = parseFloat(`.` + `0`.repeat(parseFloat(res.prices[res.symbol]).countDecimals()))
 
-    if (chart.data.labels.length > 10) chart.data.labels.splice(0, 1)
-    chart.data.labels.push(date.getMinutes() + `:` + date.getSeconds())
+  $(`#symbol`).text(res.static.symbol)  
+  $(`#balance`).text(res.balance)
+  $(`#status`).text(res.status)
+  $(`#fees`).text(res.static.fees + `%`)
 
-    if (chart.data.datasets[0].data.length > 10) chart.data.datasets[0].data.splice(0, 1)
-    chart.data.datasets[0].data.push(parseFloat(res.prices[res.symbol], 10))
+  document.title = `Genis - ` + res.status
 
-    chart.update()
+  if (res.status == `active`) {
+    $(`#tradeBtn`).removeClass(`btn-success`)
+    $(`#tradeBtn`).addClass(`btn-danger`)
+    $(`#tradeBtn`).text(`Market Sell`)
+  } else {
+    $(`#tradeBtn`).removeClass(`btn-danger`)
+    $(`#tradeBtn`).addClass(`btn-success`)
+    $(`#tradeBtn`).text(`Market Buy`)
+  } 
+  
+  liveChart.data.labels = res.liveChart.labels
+  liveChart.data.datasets[0].data = res.liveChart.data
+
+  liveChart.update()
 
 })
+
+// Await trade offer
+$(`#tradeBtn`).click(() => socket.emit(`tradeToggle`))
